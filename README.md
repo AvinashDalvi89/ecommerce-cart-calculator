@@ -3,8 +3,14 @@
 This is cart calculator which gives back final cart price after adding discount and offers
 
   - Configuration of pricing rules
-  - Scan itesms at billing
+  - Scan items at billing
   - Calculating Total price after adding discount rules
+  - Sales or marketing team easily add new products or modify existing product price
+  - Billing team can pass pricing rules while doing checkout and its configuraable. 
+  - If you want to introduce new discount rules then have to add function for that in Checkout.class.php
+  - Can easily change percentage to fixed in BULK offers its dyanamic.
+  - BOGO function only support now 50% discount with basic calculations
+  - BOGO used reminder and divident method to get items and their pricing. 
 
 ### Library
 
