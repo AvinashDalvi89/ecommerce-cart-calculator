@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-require dirname(__FILE__).'/../'.'src/Checkout.class.php';
+require dirname(__FILE__).'/../'.'Ecommerce.class.php';
 
 final class CheckoutTest extends TestCase
 {
@@ -33,12 +33,11 @@ final class CheckoutTest extends TestCase
 						}';
 
 
-    	$checkout = new Checkout($pricing_rules);
-    	foreach ($items as $key => $item) {
-    	  $checkout->scanItem($item);
-    	}
-    	$total = $checkout->getTotal();
-    	var_dump($total);
+        $ecommerce = new Ecommerce($items,$pricing_rules);
+        $total = $ecommerce->getTotal();
+        $this->AssertEquals(81,$total);
+    	//var_dump($total);
     	//var_dump($checkout->getCartItems());
+    	return $total;
     }
 }
