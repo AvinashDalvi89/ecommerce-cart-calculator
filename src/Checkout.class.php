@@ -62,26 +62,30 @@ class Checkout
     }
 
 	private function __calculateBogoOffer($pricing_rules_item,$item,$item_price,$item_count){
-
+		
 	   $offer_quantity = $pricing_rules_item->maxLimit;
 	   $items_reminder = $item_count % $offer_quantity;
 	   $items_actual = intdiv($item_count, $offer_quantity); 
-	   $items_total_price = ($items_actual + $items_reminder) * $item_price;  
-	   var_dump($items_total_price);
+	   $items_total_price = ($items_actual + $items_reminder) * $item_price;
 	  return $items_total_price;
 	}
 
 	private function __calculateBulkOffer($pricing_rules_item,$item,$item_price,$item_count){
-
-	   $bulk_qty_lower_limit = $pricing_rules_item->minLimit;
-	   $price_reduction = (isset($pricing_rules_item->discountAmount))
-	   ? : 0;
+       $bulk_qty_lower_limit = $pricing_rules_item->minLimit;
+       if($pricing_rules_item->discountType == 'fixed'){
+           
+		   $price_reduction = (isset($pricing_rules_item->discountAmount))
+		   ? : 0;
+		   	
+       }else if($pricing_rules_item->discountType == 'percentage'){
+           $price_reduction = ($pricing_rules_item->discountAmount * $item_price) /100;
+       }
 	   if($item_count >= $bulk_qty_lower_limit){
-	      $items_total_price = $item_count * ($item_price - $price_reduction);
-	   }
-	   else{
-	      $items_total_price = $item_count * $item_price; 
-	   }
+		      $items_total_price = $item_count * ($item_price - $price_reduction);
+		}
+		else{
+		      $items_total_price = $item_count * $item_price; 
+		}
 
 	   return $items_total_price;
 	}
