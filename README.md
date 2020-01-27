@@ -55,12 +55,12 @@ product-catalog.json
 
 Output will final priced after addition of discounting rules : 
 ```
-Total Cart Price is $81"
+Total Cart Price is $81
 ```
 ### Method 
 
 Majorily used BOGO( Buy one get one) and Bulk Items offers:
 
-* [calculateBogoOffer()] - if buy maxLimit then get one free or 50% discount on each item. 
-* [calculateBulkOffer()] - if minLimit is cross or equal then calculate this offers
+* ```calculateBogoOffer()``` - if buy maxLimit then get one free or 50% discount on each item. 
+* ```calculateBulkOffer()``` - if minLimit is cross or equal then calculate this offers
 
