@@ -50,7 +50,12 @@ product-catalog.json
     }
 }
 ```
+### Execution 
 
+```php
+$ecommerce = new Ecommerce($items,$pricing_rules);
+$total = $ecommerce->getTotal();
+```
 ### Output
 
 Output will final priced after addition of discounting rules : 
