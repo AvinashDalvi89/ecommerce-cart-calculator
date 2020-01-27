@@ -56,6 +56,11 @@ product-catalog.json
 $ecommerce = new Ecommerce($items,$pricing_rules);
 $total = $ecommerce->getTotal();
 ```
+### Run via Terminal 
+
+```
+./phpunit tests/CheckoutTest.php
+```
 ### Output
 
 Output will final priced after addition of discounting rules : 
